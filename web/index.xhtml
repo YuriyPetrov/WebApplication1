@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="./template.xhtml">
+        <ui:define name="body">
+            <h:form>
+            <h:commandLink action="#{cathController.previous}" value="Previous #{cathController.pageSize}" rendered="#{cathController.hasPreviousPage}"/> 
+            <h:commandLink action="#{cathController.next}" value="Next #{cathController.pageSize}" rendered="#{cathController.hasNextPage}"/> 
+                <h:dataTable value="#{cathPtotectController.protectors}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Description"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPass}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                        <h:outputText value="#{item.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value=" "/>
+                        </f:facet>
+                    <h:commandLink action="#{cathController.getCathods}" value="View"/>
+                    </h:column>
+                </h:dataTable> 
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
