@@ -42,4 +42,17 @@ public class CathPtotectController {
         }
         return cathodProtect;
     }
+    
+    public DataModel getCathodicConverter(){
+        return null;
+    }
+    public DataModel getAnodeGrounding(){
+        return null;
+    }
+    public DataModel getExpluatationcontrol(){
+        return null;
+    }
+    public DataModel getPlannedpreventivemaintenance(){
+        return null;
+    }
 }

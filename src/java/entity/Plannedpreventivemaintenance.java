@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
     /*
-    @ManyToOne
-    @JoinColumn(name = "id_protect")
-    private Cathodicprotection idprotect;
+   
 */
 package entity;
 
@@ -70,6 +68,10 @@ public class Plannedpreventivemaintenance implements Serializable {
     @Size(max = 45)
     @Column(name = "sign")
     private String sign;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_protect")
+    private Cathodicprotection idprotect;
 
     public Plannedpreventivemaintenance() {
     }
@@ -206,9 +208,9 @@ public class Plannedpreventivemaintenance implements Serializable {
     public String toString() {
         return "entity.Plannedpreventivemaintenance[ id=" + id + " ]";
     }
-    /*
+    
     public Cathodicprotection getCathodicprotection(){
         return idprotect;
     }
-    */
+    
 }
