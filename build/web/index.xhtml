@@ -5,9 +5,7 @@
     <ui:composition template="./template.xhtml">
         <ui:define name="body">
             <h:form>
-            <h:commandLink action="#{cathController.previous}" value="Previous #{cathController.pageSize}" rendered="#{cathController.hasPreviousPage}"/> 
-            <h:commandLink action="#{cathController.next}" value="Next #{cathController.pageSize}" rendered="#{cathController.hasNextPage}"/> 
-                <h:dataTable value="#{cathPtotectController.protectors}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                 <h:dataTable value="#{cathPtotectController.protectors}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                  <h:column>
                          <f:facet name="header">
                             <h:outputText value="Title"/>
@@ -30,7 +28,7 @@
                         <f:facet name="header">
                             <h:outputText value=" "/>
                         </f:facet>
-                    <h:commandLink action="#{cathController.getCathods}" value="View"/>
+                        <h:commandLink action="#{cathPtotectController.prepareView()}" value="View"/>
                     </h:column>
                 </h:dataTable> 
             </h:form>

@@ -13,116 +13,101 @@
                     <h:form>
                     <h:panelGrid columns="2">
                     <h:outputText value="Title:"/>
-                    <h:outputText value="#{cathController.selected.convertertype}" title="Title"/>
+                    <h:outputText value="#{cathPtotectController.selected.id}" title="Title"/>
                     <h:outputText value="Title:"/>
-                    <h:outputText value="#{cathController.selected.eresistance}" title="Title"/>
-                </h:panelGrid>
-                
-                <h:commandLink action="#{filmController.prepareList}" value="View All List"/>
-                <br/>
+                    <h:outputText value="#{cathPtotectController.selected.name}" title="Title"/>
+                    <h:outputText value="Title:"/>
+                    <h:outputText value="#{cathPtotectController.selected.cathodicconverter}" title="Title"/>
+                </h:panelGrid>               
+             </h:form>            
+            <h:form>
+                <h:dataTable value="#{cathPtotectController.selected.cathodicconverter}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.amperage}"/>
+                    </h:column>                 
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.cathodicprotection}"/>
+                    </h:column>
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.eresistance}"/>
+                    </h:column>     
+                </h:dataTable>
+            </h:form>
+            <h:form>
+                <h:dataTable value="#{cathPtotectController.selected.anodegrounding}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.anodegroundelecttype}"/>
+                    </h:column>                 
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.depth}"/>
+                    </h:column>
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.manufacturer}"/>
+                    </h:column>     
+                </h:dataTable>
+            </h:form>
+            <h:form>
+                <h:dataTable value="#{cathPtotectController.selected.expluatationcontrol}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.afteramperage}"/>
+                    </h:column>                 
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.aftervoltage}"/>
+                    </h:column>
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.beforeamperageon}"/>
+                    </h:column>     
+                </h:dataTable>
+            </h:form>
+            <h:form>
+                <h:dataTable value="#{cathPtotectController.selected.plannedpreventivemaintenance}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.amperagea}"/>
+                    </h:column>                 
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.amperageb}"/>
+                    </h:column>
+                 <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                     <h:outputText value="#{item.description}"/>
+                    </h:column>     
+                </h:dataTable>
             </h:form>
         <br/>
-        <h:form>
-            <h:dataTable value="#{cathController.filmTitles}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Title"/>
-                        </f:facet>
-                        <h:outputText value="#{item.installdate}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.convertertype}"/>
-                    </h:column>
-                     <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Title"/>
-                        </f:facet>
-                        <h:outputText value="#{item.manufacturer}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.releasedate}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Title"/>
-                        </f:facet>
-                        <h:outputText value="#{item.serialnumber}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.protectcovertype}"/>
-                    </h:column>
-                     <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Title"/>
-                        </f:facet>
-                        <h:outputText value="#{item.power}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.voltage}"/>
-                    </h:column>
-                     <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Title"/>
-                        </f:facet>
-                        <h:outputText value="#{item.amperage}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.telecontrol}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Title"/>
-                        </f:facet>
-                        <h:outputText value="#{item.jointprotection}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.emeter}"/>
-                    </h:column>
-                                        <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Title"/>
-                        </f:facet>
-                        <h:outputText value="#{item.eresistance}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.emeter}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.notes}"/>
-                    </h:column>                
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value=" "/>
-                        </f:facet>
-                    <h:commandLink action="#{cathController.prepareView}" value="View"/>
-                    </h:column>
-                </h:dataTable>
-                <br/>
-            </h:form>
     </ui:define>
-
 </ui:composition>

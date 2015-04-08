@@ -6,12 +6,14 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -38,6 +40,17 @@ public class Cathodicprotection implements Serializable {
     @Size(max = 45)
     @Column(name = "name")
     private String name;
+    
+    @OneToMany(mappedBy="idprotect")
+    private Set<Cathodicconverter> cathodicprotection;
+    @OneToMany(mappedBy="idprotect")
+    private Set<Anodegrounding> anode;
+    @OneToMany(mappedBy="idprotect")
+    private Set<Expluatationcontrol> expcontrol;
+    @OneToMany(mappedBy="idprotect")
+    private Set<Plannedpreventivemaintenance> maintrance;
+    
+    
 
     public Cathodicprotection() {
     }
@@ -98,6 +111,19 @@ public class Cathodicprotection implements Serializable {
     @Override
     public String toString() {
         return "entity.Cathodicprotection[ id=" + id + " ]";
+    }
+    
+    public Set<Cathodicconverter> getCathodicconverter(){
+        return cathodicprotection;
+    }
+    public Set<Anodegrounding> getAnodegrounding(){
+        return anode;
+    }
+    public Set<Expluatationcontrol> getExpluatationcontrol(){
+        return expcontrol;
+    }
+    public Set<Plannedpreventivemaintenance> getPlannedpreventivemaintenance(){
+        return maintrance;
     }
     
 }

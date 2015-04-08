@@ -69,6 +69,7 @@ public class Anodegrounding implements Serializable {
     @Size(max = 45)
     @Column(name = "notes")
     private String notes;
+    
     @ManyToOne
     @JoinColumn(name = "id_protect")
     private Cathodicprotection idprotect;

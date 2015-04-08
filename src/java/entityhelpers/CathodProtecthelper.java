@@ -43,7 +43,7 @@ public class CathodProtecthelper {
     try {
         org.hibernate.Transaction tx = session.beginTransaction();
         Query q = session.createQuery ("from Cathodicprotection as c where c.id_protect="+ cathID);
-        cathod = (Cathodicprotection) q.uniqueResult();
+        cathod = (Cathodicprotection) q.list();
     } catch (Exception e) {
         e.printStackTrace();
     }
@@ -90,7 +90,7 @@ public class CathodProtecthelper {
         List<Plannedpreventivemaintenance> maintrance = null;
          try {
         org.hibernate.Transaction tx = session.beginTransaction();
-        Query q = session.createQuery ("from Expluatationcontrol as c where c.idprotect="+ maintranceID);
+        Query q = session.createQuery ("from Plannedpreventivemaintenance as c where c.idprotect="+ maintranceID);
         maintrance = (List<Plannedpreventivemaintenance>) q.list();
     } catch (Exception e) {
         e.printStackTrace();

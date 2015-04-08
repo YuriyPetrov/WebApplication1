@@ -5,10 +5,9 @@
         <group>
             <file>file:/D:/developing/netbeans_prj/WebApplication1/src/java/entity/Anodegrounding.java</file>
             <file>file:/D:/developing/netbeans_prj/WebApplication1/src/java/entityhelpers/CathodProtecthelper.java</file>
-            <file>file:/D:/developing/netbeans_prj/WebApplication1/src/java/entity/Plannedpreventivemaintenance.java</file>
-            <file>file:/D:/developing/netbeans_prj/WebApplication1/src/java/controls/CathController.java</file>
-            <file>file:/D:/developing/netbeans_prj/WebApplication1/src/java/entityhelpers/Cathodhelper.java</file>
-            <file>file:/D:/developing/netbeans_prj/WebApplication1/src/java/entity/Expluatationcontrol.java</file>
+            <file>file:/D:/developing/netbeans_prj/WebApplication1/src/java/entity/Cathodicconverter.java</file>
+            <file>file:/D:/developing/netbeans_prj/WebApplication1/web/browse.xhtml</file>
+            <file>file:/D:/developing/netbeans_prj/WebApplication1/web/index.xhtml</file>
             <file>file:/D:/developing/netbeans_prj/WebApplication1/src/java/controls/CathPtotectController.java</file>
         </group>
     </open-files>
