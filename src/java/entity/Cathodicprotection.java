@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -49,6 +50,8 @@ public class Cathodicprotection implements Serializable {
     private Set<Expluatationcontrol> expcontrol;
     @OneToMany(mappedBy="idprotect")
     private Set<Plannedpreventivemaintenance> maintrance;
+    @OneToOne
+    private Summaryinfo summaryinfo;
     
     
 
@@ -124,6 +127,9 @@ public class Cathodicprotection implements Serializable {
     }
     public Set<Plannedpreventivemaintenance> getPlannedpreventivemaintenance(){
         return maintrance;
+    }
+    public Summaryinfo getSummaryinfo(){
+        return summaryinfo;
     }
     
 }
