@@ -94,4 +94,16 @@ public class CathPtotectController {
         current = (Cathodicprotection) getProtectors().getRowData();       
         return "browse";
     }
+    
+    public String goAddingpage(){
+        return "adding";
+    }
+    
+    public void addCathodicprotection(){
+        Cathodicprotection adding = new Cathodicprotection();
+        adding.setId(3);
+        adding.setIdPass(3);
+        adding.setName("test");
+        helper.addCathodicprotection(adding);
+    }
 }

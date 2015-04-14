@@ -12,7 +12,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -62,9 +61,9 @@ public class Summaryinfo implements Serializable {
     @Size(max = 45)
     @Column(name = "tenant")
     private String tenant;
-    @Lob
-    @Column(name = "map_img")
-    private byte[] mapImg;
+    @Size(max = 45)
+    @Column(name = "mapurl")
+    private String mapImg;
 
     public Summaryinfo() {
     }
@@ -79,14 +78,6 @@ public class Summaryinfo implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Cathodicprotection getIdProtect() {
-        return idProtect;
-    }
-
-    public void setIdProtect(Cathodicprotection idProtect) {
-        this.idProtect = idProtect;
     }
 
     public String getPipelineName() {
@@ -145,11 +136,11 @@ public class Summaryinfo implements Serializable {
         this.tenant = tenant;
     }
 
-    public byte[] getMapImg() {
+    public String getMapImg() {
         return mapImg;
     }
 
-    public void setMapImg(byte[] mapImg) {
+    public void setMapImg(String mapImg) {
         this.mapImg = mapImg;
     }
 
@@ -177,5 +168,7 @@ public class Summaryinfo implements Serializable {
     public String toString() {
         return "entity.Summaryinfo[ id=" + id + " ]";
     }
-    
+    public Cathodicprotection getCathodicprotection(){
+        return idProtect;
+    }
 }

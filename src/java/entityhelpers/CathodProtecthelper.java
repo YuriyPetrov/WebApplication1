@@ -14,6 +14,7 @@ import entity.Plannedpreventivemaintenance;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -26,10 +27,10 @@ public class CathodProtecthelper {
         this.session = HibernateUtil.getSessionFactory().getCurrentSession();
 }
     
- public List getCathodeProtector(int startID, int endID) {
+ public synchronized List getCathodeProtector(int startID, int endID) {
     List<Cathodicprotection> cathList = null;
     try {
-        org.hibernate.Transaction tx = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
         Query q = session.createQuery ("from Cathodicprotection");
         cathList = (List<Cathodicprotection>) q.list();
     } catch (Exception e) {
@@ -41,7 +42,7 @@ public class CathodProtecthelper {
  public Cathodicprotection getCathodeProtectorbyID(int cathID) {
     Cathodicprotection cathod = null;
     try {
-        org.hibernate.Transaction tx = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
         Query q = session.createQuery ("from Cathodicprotection as c where c.id_protect="+ cathID);
         cathod = (Cathodicprotection) q.list();
     } catch (Exception e) {
@@ -53,7 +54,7 @@ public class CathodProtecthelper {
     public List<Cathodicconverter> getCathodicConverterbyID(int cathconvID){
        List<Cathodicconverter> cathodconv = null;
     try {
-        org.hibernate.Transaction tx = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
         Query q = session.createQuery ("from Cathodicconverter as c where c.idprotect="+ cathconvID);
         cathodconv = (List<Cathodicconverter>) q.list();
     } catch (Exception e) {
@@ -65,7 +66,7 @@ public class CathodProtecthelper {
     public List<Anodegrounding> getAnodeGroundingbyID(int anodeID){
         List<Anodegrounding> anode = null;
     try {
-        org.hibernate.Transaction tx = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
         Query q = session.createQuery ("from Anodegrounding as c where c.idprotect="+ anodeID);
         anode = (List<Anodegrounding>) q.list();
     } catch (Exception e) {
@@ -77,7 +78,7 @@ public class CathodProtecthelper {
     public List<Expluatationcontrol> getExpluatationcontrolbyID(int explID){
         List<Expluatationcontrol> expcontrol = null;
      try {
-        org.hibernate.Transaction tx = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
         Query q = session.createQuery ("from Expluatationcontrol as c where c.idprotect="+ explID);
         expcontrol = (List<Expluatationcontrol>) q.list();
     } catch (Exception e) {
@@ -89,7 +90,7 @@ public class CathodProtecthelper {
     public List<Plannedpreventivemaintenance> getPlannedpreventivemaintenancebyID(int maintranceID){
         List<Plannedpreventivemaintenance> maintrance = null;
          try {
-        org.hibernate.Transaction tx = session.beginTransaction();
+        Transaction tx = session.beginTransaction();
         Query q = session.createQuery ("from Plannedpreventivemaintenance as c where c.idprotect="+ maintranceID);
         maintrance = (List<Plannedpreventivemaintenance>) q.list();
     } catch (Exception e) {
@@ -97,5 +98,14 @@ public class CathodProtecthelper {
     }
         return maintrance;
     }
-
+    
+    public void addCathodicprotection(Cathodicprotection cathodicprotection){
+        try{
+        Transaction tx = session.beginTransaction();
+        session.save(cathodicprotection);
+        tx.commit();
+        } catch(Exception e){
+            e.printStackTrace();
+        }        
+    }
 }

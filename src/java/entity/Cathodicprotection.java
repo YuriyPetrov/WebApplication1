@@ -49,10 +49,11 @@ public class Cathodicprotection implements Serializable {
     @OneToMany(mappedBy="idprotect")
     private Set<Expluatationcontrol> expcontrol;
     @OneToMany(mappedBy="idprotect")
-    private Set<Plannedpreventivemaintenance> maintrance;
-    @OneToOne
+    private Set<Plannedpreventivemaintenance> maintrance;  
+    @OneToOne(mappedBy="idProtect")
     private Summaryinfo summaryinfo;
-    
+    @OneToMany(mappedBy="idProtect")
+    private Set<AuditData> auditData;
     
 
     public Cathodicprotection() {
@@ -131,5 +132,7 @@ public class Cathodicprotection implements Serializable {
     public Summaryinfo getSummaryinfo(){
         return summaryinfo;
     }
-    
+    public Set<AuditData> getAuditData(){
+        return auditData;
+    }
 }

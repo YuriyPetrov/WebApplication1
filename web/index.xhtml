@@ -6,11 +6,11 @@
         <ui:define name="body">
             <h:form>
                 <h:dataTable value="#{cathPtotectController.protectors}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                 <h:column>
+                    <h:column>
                          <f:facet name="header">
-                            <h:outputText value="Title"/>
+                            <h:outputText value="Подразделение"/>
                         </f:facet>
-                        <h:outputText value="#{item.id}"/>
+                        <h:outputText value="#{item.summaryinfo.pipelineName}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
@@ -25,12 +25,36 @@
                         <h:outputText value="#{item.name}"/>
                     </h:column>
                     <h:column>
+                         <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                        <h:outputText value="#{item.summaryinfo.pipelineName}"/>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value=" "/>
                         </f:facet>
                         <h:commandLink action="#{cathPtotectController.prepareView()}" value="View"/>
                     </h:column>
                 </h:dataTable> 
+            </h:form>
+            <h:form>
+            <h:panelGrid columns="2"> 
+            
+            
+            <h:commandButton value="#{msgs.goButtonText}"
+        style="font-family:Palatino;font-style:italic"
+        action="#{cathPtotectController.addCathodicprotection}"/>
+
+            </h:panelGrid>
+            </h:form>
+            <h:form>
+                <h:panelGrid>
+                    <h:commandButton value="Add new device"
+             style="font-family:Palatino;font-style:italic"
+             action="#{cathPtotectController.goAddingpage}"/>
+
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>
